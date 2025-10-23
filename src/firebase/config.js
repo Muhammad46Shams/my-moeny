@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBNx-1nf3AieAgRK9BQa62Is2T29uxiL_A",
@@ -12,4 +13,7 @@ const firebaseConfig = {
 // init services
 const projetFirestore = initializeApp(firebaseConfig);
 
-export { projetFirestore }
+// Initialize Firebase Authentication and get a reference to the service
+const projectAuth = getAuth(projetFirestore);
+
+export { projetFirestore, projectAuth }
