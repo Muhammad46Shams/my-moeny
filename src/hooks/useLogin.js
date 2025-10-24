@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useAuthContext } from "./useAuthContext";
 import { projectAuth } from "../firebase/config"
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export const useLogin = () => {
     const[isCancelled, setIsCancelled] = useState(false)
@@ -23,19 +24,19 @@ export const useLogin = () => {
             dispatch({type: 'LOGIN', payload: res.user})
 
             //update state
-            if(!isCancelled)
-            {
+            // if(!isCancelled)
+            // {
                 setError(null)
                 setIsPending(false)
-            }
+            // }
             
         } catch (err) {
-            if(!isCancelled)
-            {
+            // if(!isCancelled)
+            // {
                 console.log(err.message)
                 setError(err.message)
                 setIsPending(false)
-            }
+            // }
         }
     }
 
