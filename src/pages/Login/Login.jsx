@@ -9,10 +9,6 @@ export default function Login() {
   const [password, setPassword] = useState('')
   const {login, error, isPending} = useLogin()
 
-  console.log(isPending, 'isPending' );
-  
-  
-
   const handleSubmit = (e) => {
     e.preventDefault()
     login(email, password)
