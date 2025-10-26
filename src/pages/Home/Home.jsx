@@ -11,7 +11,8 @@ export default function Home() {
   const { user } = useAuthContext()
   const { error, documents } = useCollection(
     'transactions',
-    ["doc.uid", "==", user.uid]
+    ["doc.uid", "==", user.uid],
+    ['created_at', 'desc']
   )
 
   
